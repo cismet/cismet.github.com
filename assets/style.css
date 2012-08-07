@@ -12,17 +12,17 @@ body {
 h1 {
   font-weight: bold;
   font-size: 20px;
-  color: #333;
+  color: #333333;
 }
 
 h2 {
   font-weight: bold;
   font-size: 20px;
-  color: #0084b4;
+  color: #333333;
 }
 
 a:link, a:visited {
-  color: #0084b4;
+  color: #333333;
   text-decoration: none;
 }
 
@@ -70,6 +70,7 @@ a:hover {
   height: 64px;
   margin: 15px 0 0 15px;
   background: url("logo.png");
+  background-repeat: no-repeat;
   text-indent: -99999px;
 }
 
