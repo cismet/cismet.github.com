@@ -13,7 +13,7 @@
 
       // Put custom repo URL's in this object, keyed by repo name.
       var repoUrls = {
-//        "bootstrap": "http://twitter.github.com/bootstrap/",
+        "beanmill": "http://cismet.github.com/beanmill/",
 //        "finagle": "http://twitter.github.com/finagle/",
 //        "hogan.js": "http://twitter.github.com/hogan.js/"
       };
@@ -24,7 +24,7 @@
 
       // Put custom repo descriptions in this object, keyed by repo name.
       var repoDescriptions = {
-  //      "bootstrap": "An HTML, CSS, and JS toolkit designed to kickstart development of webapps and sites",
+        "beanmill": "A logging viewer for the  Netbeans IDE",
   //      "naggati2": "A protocol builder for Netty using Scala 2.8"
       };
 
@@ -59,10 +59,27 @@
         var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
         $link.append($("<h2>").text(repo.name));
         $link.append($("<h3>").text(repo.language));
-        $link.append($("<p>").text(repoDescription(repo)));
-        $item.appendTo("#repos");
-      }
+        imageurl="http://www.cismet.de/images/githubthumbnails/"+repo.name+".png";
 
+        if (urlExists(imageurl)){
+            $link.append("<p><img src=\"http://www.cismet.de/images/githubthumbnails/"+repo.name+".png\"/></p>");
+
+        }
+        else {
+            $link.append("<p><img src=\"http://www.cismet.de/images/githubthumbnails/placeholder.png\"/></p>");
+        }
+
+        $link.append($("<h3>").text(repoDescription(repo)));
+        $item.appendTo("#repos");
+        
+        
+      }
+      function urlExists(url) {
+          var http = new XMLHttpRequest();
+          http.open('HEAD', url, false);
+          http.send();
+          return http.status==200;
+      }
       function addRepos(repos, page) {
         repos = repos || [];
         page = page || 1;
