@@ -60,7 +60,7 @@
         var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
         $link.append($("<h2>").text(repo.name));
         $link.append($("<h3>").text(repo.language));
-              $link.append("<p><img src=\"http://www.cismet.de/images/githubthumbnails/"+repo.name+".png\"/></p>");
+              $link.append("<p><img src=\"assets/thumbnails/"+repo.name+".png\"/></p>");
               $link.append($("<h3>").text(repoDescription(repo)));
               $item.appendTo("#repos");
           
